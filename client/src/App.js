@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import './css/bootstrap.min.css';
-import List from './components/list'
-import Add from './components/add'
-import Update from './components/update'
+import List from './components/users/list'
+import Add from './components/users/add'
+import Update from './components/users/update'
 import {Switch, Route, Link} from 'react-router-dom'
-import Navbar from "./components/navbar";
+import Navbar from "./components/users/navbar";
 
 
 class App extends Component {

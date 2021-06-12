@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {Redirect} from 'react-router-dom'
 
 class Add extends React.Component {
     state = {
@@ -27,7 +28,7 @@ class Add extends React.Component {
 
     }
 
-        componentDidMount() {
+    componentDidMount() {
         this.getGroupData()
     }
 
@@ -35,17 +36,18 @@ class Add extends React.Component {
         const apiUrl = 'http://127.0.0.1:8000/users/'
         axios.post(apiUrl,{
                 "username" : this.state.username,
-                "group" : [this.state.group]
-              }).catch((error) => console.log(error));
-        console.log(this.state.username)
-        console.log(this.state.group)
+                "group" : this.state.group
+              })
+            .then((response)=>{window.location='/'})
+            .catch((error) => console.log(error));
+
     }
 
 
     render() {
         const groupData = this.state.groupData
         const options = groupData.map((group =>
-                <option value={group.id} onChange={this.changeHandler}>
+                <option value={group.name} onChange={this.changeHandler}>
                     {group.name}
                 </option>
         ))
@@ -61,6 +63,7 @@ class Add extends React.Component {
                     <th>Group</th>
                     <td>
                         <select name='group'  onChange={this.changeHandler} className="form-control">
+                            <option></option>
                             {options}
                         </select>
 
@@ -82,9 +85,3 @@ class Add extends React.Component {
 
 export default Add;
 
-{/*<th>Username</th>*/
-}
-{/*<th>Created</th>*/
-}
-{/*<th>Group</th>*/
-}
