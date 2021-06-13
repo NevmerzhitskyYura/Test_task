@@ -28,9 +28,13 @@ class GroupsList extends React.Component {
             .then((response) => {
                 window.location = '/groups'
             })
+            .catch((error) => {
+                if (error.response.status === 403) {
+                    alert('This group have users. You can\'t delete group whis users!')
+                }
+            })
             .catch((error) => console.log(error));
     }
-
 
 
     render() {
@@ -41,7 +45,7 @@ class GroupsList extends React.Component {
                 <td>{group.name}</td>
                 <td>{group.description}</td>
                 <td>
-                    <Link to={'groups/update/'+group.id} className='btn btn-info mr-2'>Update</Link>
+                    <Link to={'groups/update/' + group.id} className='btn btn-info mr-2'>Update</Link>
                     <button className='btn btn-danger' onClick={() => this.deleteData(group.id)}>Delete</button>
                 </td>
             </tr>
@@ -64,7 +68,7 @@ class GroupsList extends React.Component {
                 </table>
                 <Link to={'groups/add'}>
                     <div className="col text-center">
-                        <button className="mx-auto" className='btn btn-success btn-lg m-5'>Add new Group</button>
+                        <button className='btn btn-success btn-lg m-5'>Add new Group</button>
                     </div>
 
                 </Link>

@@ -62,7 +62,9 @@ class UsersAdd extends React.Component {
                     <th>Group</th>
                     <td>
                         <select name='group'  onChange={this.changeHandler} className="form-control">
-                            <option></option>
+                            <option value={this.state.groupData.name} onChange={this.changeHandler}>
+                                {null}
+                            </option>
                             {options}
                         </select>
 

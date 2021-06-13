@@ -6,7 +6,7 @@ from users_list.models import Users
 
 
 class UsersSerializer(serializers.ModelSerializer):
-    group = serializers.SlugRelatedField(allow_empty=True, many=False, slug_field='name', queryset=Group.objects.all())
+    group = serializers.SlugRelatedField(allow_null=True, many=False, slug_field='name', queryset=Group.objects.all())
 
     class Meta:
         model = Users

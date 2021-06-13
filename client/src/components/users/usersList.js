@@ -60,6 +60,7 @@ class UsersList extends React.Component {
                         <th>Actions</th>
                     </tr>
                     </thead>
+
                     <tbody>
                     {rows}
                     </tbody>
@@ -67,7 +68,7 @@ class UsersList extends React.Component {
                 </table>
                 <Link to={'users/add'}>
                     <div className="col text-center">
-                        <button className="mx-auto" className='btn btn-success btn-lg m-5'>Add new User</button>
+                        <button className='btn btn-success btn-lg m-5'>Add new User</button>
                     </div>
 
                 </Link>

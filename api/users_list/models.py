@@ -11,3 +11,9 @@ class Users(models.Model):
     class Meta:
         db_table = 'users'
         ordering = ['created']
+
+    @classmethod
+    def users_in_group(cls, pk):
+        if len(list(Users.objects.filter(group=pk))) >=1:
+            return False
+        return True
