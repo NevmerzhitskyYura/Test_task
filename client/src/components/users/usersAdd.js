@@ -1,8 +1,7 @@
 import React from "react";
 import axios from "axios";
-import {Redirect} from 'react-router-dom'
 
-class Add extends React.Component {
+class UsersAdd extends React.Component {
     state = {
         'id':'',
         'username':'',
@@ -38,7 +37,7 @@ class Add extends React.Component {
                 "username" : this.state.username,
                 "group" : this.state.group
               })
-            .then((response)=>{window.location='/'})
+            .then((response)=>{window.location='/users'})
             .catch((error) => console.log(error));
 
     }
@@ -83,5 +82,5 @@ class Add extends React.Component {
 
 }
 
-export default Add;
+export default UsersAdd;
 

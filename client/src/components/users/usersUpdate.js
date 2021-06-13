@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-class Update extends React.Component {
+class UsersUpdate extends React.Component {
     username = React.createRef()
     group = React.createRef()
     state = {
@@ -32,9 +32,6 @@ class Update extends React.Component {
             .then((response) => {
                 this.setState({userData: response.data})
             })
-            .then((response) => {
-                console.log(this.state.userData)
-            })
             .catch((error) => console.log(error));
 
 
@@ -54,7 +51,7 @@ class Update extends React.Component {
             "group": this.group.current.value
         })
             .then((response) => {
-                window.location = '/'
+                window.location = '/users'
             })
             .catch((error) => console.log(error));
     }
@@ -103,5 +100,5 @@ class Update extends React.Component {
 
 }
 
-export default Update;
+export default UsersUpdate;
 

@@ -1,10 +1,13 @@
 import React, {Component} from "react";
 import './css/bootstrap.min.css';
-import List from './components/users/list'
-import Add from './components/users/add'
-import Update from './components/users/update'
-import {Switch, Route, Link} from 'react-router-dom'
-import Navbar from "./components/users/navbar";
+import UsersList from './components/users/usersList'
+import UsersAdd from './components/users/usersAdd'
+import UsersUpdate from './components/users/usersUpdate'
+import GroupsList from './components/groups/groupsList'
+import GroupsAdd from "./components/groups/groupsAdd";
+import GroupsUpdate from "./components/groups/groupsUpdate";
+import {Switch, Route} from 'react-router-dom'
+import Navbar from "./components/navbar";
 
 
 class App extends Component {
@@ -14,9 +17,13 @@ class App extends Component {
                 <Navbar/>
 
                 <Switch>
-                    <Route path='/' component={List} exact/>
-                    <Route path='/add' component={Add}/>
-                    <Route path='/update/:id' component={Update}/>
+                    <Route path='/users' component={UsersList} exact/>
+                    <Route path='/users/add' component={UsersAdd}/>
+                    <Route path='/users/update/:id' component={UsersUpdate}/>
+                    <Route path='/groups' component={GroupsList} exact/>
+                    <Route path='/groups/add' component={GroupsAdd}/>
+                    <Route path='/groups/update/:id' component={GroupsUpdate}/>
+
                 </Switch>
             </div>
         );

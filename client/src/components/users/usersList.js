@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import axios from "axios";
 import moment from "moment";
 
-class List extends React.Component {
+class UsersList extends React.Component {
     state = {
         data: []
     }
@@ -27,7 +27,7 @@ class List extends React.Component {
         const apiUrl = 'http://127.0.0.1:8000/users/' + id
         axios.delete(apiUrl)
             .then((response) => {
-                window.location = '/'
+                window.location = '/users'
             })
             .catch((error) => console.log(error));
     }
@@ -43,7 +43,7 @@ class List extends React.Component {
                 <td>{moment(usr.created).format('DD-MMM-YYYY-HH-mm')}</td>
                 <td>{usr.group}</td>
                 <td>
-                    <Link to={'/update/'+usr.id} className='btn btn-info mr-2'>Update</Link>
+                    <Link to={'users/update/'+usr.id} className='btn btn-info mr-2'>Update</Link>
                     <button className='btn btn-danger' onClick={() => this.deleteData(usr.id)}>Delete</button>
                 </td>
             </tr>
@@ -65,7 +65,7 @@ class List extends React.Component {
                     </tbody>
 
                 </table>
-                <Link to={'/add'}>
+                <Link to={'users/add'}>
                     <div className="col text-center">
                         <button className="mx-auto" className='btn btn-success btn-lg m-5'>Add new User</button>
                     </div>
@@ -80,4 +80,4 @@ class List extends React.Component {
 }
 
 
-export default List;
+export default UsersList;
